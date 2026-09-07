@@ -1,0 +1,750 @@
+/* ==========================================================
+   STYLE.CSS
+   Biodata, Beranda, dan Portofolio
+   Tema: Ocean Blue
+   ========================================================== */
+
+
+/* ==========================================================
+   PENGATURAN TEMA
+
+   Ubah nilai pada bagian :root untuk mengubah:
+   - Warna
+   - Ukuran
+   - Bayangan
+   - Lengkungan sudut
+   ========================================================== */
+
+:root {
+  /* Warna utama */
+  --primary: #367adf;
+  --primary-hover: #394988;
+  --primary-dark: #353a4c;
+  --primary-light: #aed5f5;
+  --accent: #4face5;
+
+  /* Warna tambahan */
+  --ocean: #0096a5;
+  --mint: #9bc6c0;
+  --cream: #d7d4d2;
+
+  /* Warna latar belakang */
+  --bg-gradient-start: #aed5f5;
+  --bg-gradient-end: #eef8fc;
+
+  /* Warna kartu */
+  --card-bg: rgba(255, 255, 255, 0.94);
+  --item-bg: #ffffff;
+
+  /* Warna teks */
+  --text-main: #353a4c;
+  --text-muted: #596579;
+  --text-light: #ffffff;
+
+  /* Warna garis */
+  --border-light: #b6dbe5;
+
+  /* Bayangan */
+  --shadow-soft:
+    0 20px 50px rgba(53, 58, 76, 0.18);
+
+  --shadow-card:
+    0 10px 30px rgba(54, 122, 223, 0.16);
+
+  --shadow-button:
+    0 8px 20px rgba(54, 122, 223, 0.25);
+
+  /* Ukuran sudut */
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+
+  /* Ukuran konten */
+  --home-width: 680px;
+  --biodata-width: 720px;
+  --portfolio-width: 1000px;
+
+  /* Ukuran foto */
+  --profile-size: 160px;
+}
+
+
+/* ==========================================================
+   RESET
+   ========================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  padding: 20px;
+
+  font-family:
+    "Segoe UI",
+    Tahoma,
+    Geneva,
+    Verdana,
+    sans-serif;
+
+  color: var(--text-main);
+  line-height: 1.6;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(79, 172, 229, 0.4),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(0, 150, 165, 0.18),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      var(--bg-gradient-start) 0%,
+      var(--bg-gradient-end) 100%
+    );
+
+  background-attachment: fixed;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+
+/* ==========================================================
+   NAVIGASI
+   Dipakai pada semua halaman
+   ========================================================== */
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+
+  gap: 12px;
+  padding-top: 22px;
+  margin: 26px auto;
+
+  border-top: 1px solid var(--border-light);
+}
+
+.nav-menu a {
+  display: inline-block;
+  padding: 10px 21px;
+
+  color: var(--text-light);
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--accent)
+  );
+
+  border: 1px solid transparent;
+  border-radius: 999px;
+  box-shadow: var(--shadow-button);
+
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.nav-menu a:hover {
+  color: var(--text-light);
+
+  background: linear-gradient(
+    135deg,
+    var(--primary-hover),
+    var(--primary)
+  );
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 25px rgba(54, 122, 223, 0.3);
+}
+
+.nav-menu a:focus-visible {
+  outline: 3px solid var(--primary-light);
+  outline-offset: 3px;
+}
+
+/* Menandai halaman yang sedang dibuka */
+.nav-menu a.active {
+  color: var(--text-light);
+  background: var(--primary-hover);
+}
+
+
+/* ==========================================================
+   HALAMAN BERANDA
+
+   HTML:
+   <main class="home-main">
+   ========================================================== */
+
+.home-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: calc(100vh - 40px);
+}
+
+/* Kartu utama beranda */
+.home-main .card {
+  position: relative;
+
+  width: 100%;
+  max-width: var(--home-width);
+  padding: 44px 34px;
+
+  overflow: hidden;
+  text-align: center;
+
+  background: var(--card-bg);
+
+  border: 1px solid rgba(182, 219, 229, 0.9);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-soft);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Hiasan warna di atas kartu */
+.home-main .card::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 6px;
+
+  background: linear-gradient(
+    90deg,
+    var(--ocean),
+    var(--accent),
+    var(--primary)
+  );
+
+  content: "";
+}
+
+
+/* ==========================================================
+   FOTO PROFIL BERANDA
+   ========================================================== */
+
+.foto-profil {
+  display: block;
+
+  width: var(--profile-size);
+  height: var(--profile-size);
+
+  margin: 0 auto 24px;
+
+  object-fit: cover;
+  object-position: center;
+
+  background-color: var(--primary-light);
+
+  border: 5px solid var(--text-light);
+  outline: 4px solid var(--primary-light);
+  border-radius: 50%;
+
+  box-shadow:
+    0 12px 30px rgba(54, 122, 223, 0.28);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.foto-profil:hover {
+  transform: scale(1.04) rotate(1deg);
+
+  box-shadow:
+    0 16px 35px rgba(54, 122, 223, 0.38);
+}
+
+
+/* ==========================================================
+   TEKS BERANDA
+   ========================================================== */
+
+.home-main h1 {
+  margin-bottom: 10px;
+
+  color: var(--text-main);
+
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.home-main .role {
+  margin: 0 auto 8px;
+
+  color: var(--primary);
+  font-size: clamp(16px, 2.5vw, 18px);
+  font-weight: 600;
+}
+
+.home-main .welcome-text {
+  max-width: 52ch;
+  margin: 0 auto;
+}
+
+.home-main p {
+  color: var(--text-muted);
+  font-size: clamp(15px, 2.2vw, 16px);
+  line-height: 1.8;
+}
+
+.home-main .welcome-text p {
+  margin-bottom: 8px;
+}
+
+.home-main .footer {
+  padding-top: 18px;
+  margin-top: 24px;
+
+  color: var(--text-muted);
+  font-size: 14px;
+
+  border-top: 1px solid var(--border-light);
+}
+
+
+/* ==========================================================
+   HALAMAN BIODATA
+
+   Gunakan salah satu struktur berikut:
+   <main class="biodata-main">
+   atau
+   <main class="container">
+   ========================================================== */
+
+.biodata-main,
+.container {
+  width: 100%;
+  max-width: var(--biodata-width);
+
+  padding: 40px 32px;
+  margin: 30px auto;
+
+  background: var(--card-bg);
+
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-soft);
+}
+
+.biodata-main h1,
+.biodata-main h2,
+.container h1,
+.container h2 {
+  margin-bottom: 28px;
+
+  color: var(--primary-dark);
+
+  font-size: clamp(26px, 4vw, 34px);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+
+/* Foto biodata */
+
+.foto {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 26px;
+}
+
+.foto img {
+  width: var(--profile-size);
+  height: var(--profile-size);
+
+  object-fit: cover;
+  object-position: center;
+
+  border: 5px solid var(--text-light);
+  outline: 4px solid var(--primary-light);
+  border-radius: 50%;
+
+  box-shadow: var(--shadow-card);
+}
+
+
+/* Deskripsi biodata */
+
+.deskripsi p {
+  margin-bottom: 32px;
+
+  color: var(--text-muted);
+
+  font-size: 15.5px;
+  line-height: 1.9;
+  text-align: justify;
+}
+
+
+/* Bagian daftar biodata */
+
+.biodata-section {
+  padding: 24px;
+  margin-bottom: 32px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(174, 213, 245, 0.55),
+    rgba(155, 198, 192, 0.35)
+  );
+
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+}
+
+.judul-poin {
+  margin-bottom: 16px;
+
+  color: var(--primary-dark);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.list-biodata {
+  list-style: none;
+}
+
+.list-biodata li {
+  padding: 12px 16px;
+  margin-bottom: 10px;
+
+  color: var(--text-main);
+  background-color: var(--item-bg);
+
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius-sm);
+
+  font-size: 14.5px;
+
+  box-shadow:
+    0 4px 12px rgba(53, 58, 76, 0.08);
+}
+
+.list-biodata li:last-child {
+  margin-bottom: 0;
+}
+
+.list-biodata strong {
+  display: inline-block;
+
+  min-width: 150px;
+
+  color: var(--primary);
+}
+
+
+/* ==========================================================
+   AUDIO DAN VIDEO
+   ========================================================== */
+
+.media-title {
+  margin-bottom: 20px;
+
+  color: var(--primary-dark);
+
+  font-size: 21px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.media-container {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(240px, 1fr));
+
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.media-card {
+  padding: 20px;
+
+  text-align: center;
+
+  background-color:
+    rgba(174, 213, 245, 0.45);
+
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-card);
+}
+
+.media-card h3 {
+  margin-bottom: 6px;
+
+  color: var(--primary-dark);
+  font-size: 16px;
+}
+
+.media-card p {
+  margin-bottom: 14px;
+
+  color: var(--text-muted);
+  font-size: 13.5px;
+}
+
+.media-card audio,
+.media-card video {
+  width: 100%;
+  border-radius: var(--radius-sm);
+}
+
+.media-card video {
+  max-height: 240px;
+  object-fit: cover;
+}
+
+
+/* ==========================================================
+   HALAMAN PORTOFOLIO
+
+   HTML:
+   <main class="portfolio-main">
+   ========================================================== */
+
+.portfolio-main {
+  width: 100%;
+  max-width: var(--portfolio-width);
+
+  padding: 40px 32px;
+  margin: 30px auto;
+
+  background: var(--card-bg);
+
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-soft);
+}
+
+.portfolio-main section {
+  margin-bottom: 48px;
+}
+
+.portfolio-main section:last-child {
+  margin-bottom: 0;
+}
+
+
+/* Hero portofolio */
+
+.portfolio-main .hero {
+  text-align: center;
+}
+
+.portfolio-main .hero h1 {
+  margin-bottom: 12px;
+
+  color: var(--text-main);
+
+  font-size: clamp(32px, 6vw, 48px);
+  line-height: 1.2;
+}
+
+.portfolio-main .hero span {
+  color: var(--primary);
+}
+
+.portfolio-main .hero p {
+  max-width: 600px;
+  margin: 0 auto;
+
+  color: var(--text-muted);
+}
+
+
+/* Judul bagian portofolio */
+
+.projects h2,
+.contact h2 {
+  margin-bottom: 20px;
+
+  color: var(--primary-dark);
+
+  font-size: clamp(24px, 4vw, 32px);
+  text-align: center;
+}
+
+
+/* Daftar proyek */
+
+.project-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+
+  gap: 24px;
+}
+
+.project-card {
+  padding: 24px;
+
+  background: var(--item-bg);
+
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-card);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 16px 32px rgba(54, 122, 223, 0.2);
+}
+
+.project-card h3 {
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.project-card p {
+  color: var(--text-muted);
+}
+
+
+/* ==========================================================
+   FOOTER UMUM
+   ========================================================== */
+
+footer {
+  padding-top: 20px;
+  margin-top: 32px;
+
+  color: var(--text-muted);
+
+  font-size: 13.5px;
+  text-align: center;
+
+  border-top: 1px solid var(--border-light);
+}
+
+
+/* ==========================================================
+   RESPONSIVE TABLET DAN HP
+   ========================================================== */
+
+@media (max-width: 600px) {
+  body {
+    padding: 16px;
+  }
+
+  .home-main {
+    min-height: calc(100vh - 32px);
+  }
+
+  .home-main .card,
+  .biodata-main,
+  .container,
+  .portfolio-main {
+    padding: 32px 20px;
+  }
+
+  .foto-profil,
+  .foto img {
+    width: 135px;
+    height: 135px;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+  }
+
+  .nav-menu a {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .list-biodata strong {
+    display: block;
+
+    min-width: 0;
+    margin-bottom: 3px;
+  }
+
+  .deskripsi p {
+    text-align: left;
+  }
+}
+
+
+/* ==========================================================
+   RESPONSIVE HP KECIL
+   ========================================================== */
+
+@media (max-width: 380px) {
+  body {
+    padding: 10px;
+  }
+
+  .home-main .card,
+  .biodata-main,
+  .container,
+  .portfolio-main {
+    padding: 28px 16px;
+  }
+
+  .foto-profil,
+  .foto img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .biodata-section,
+  .project-card,
+  .media-card {
+    padding: 16px;
+  }
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beranda</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #eef2ff 0%, #ffffff 100%);
+      color: #1f2937;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #ffffff;
+      max-width: 650px;
+      width: 100%;
+      padding: 45px 35px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px -20px rgba(15, 23, 42, 0.25);
+      text-align: center;
+      border: 1px solid #e5e7eb;
+    }
+
+    .foto-profil {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #eef2ff;
+      box-shadow: 0 12px 30px rgba(79, 70, 229, 0.25);
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .role {
+      color: #4f46e5;
+      font-size: clamp(16px, 2.5vw, 18px);
+      font-weight: 600;
+      margin-bottom: 26px;
+    }
+
+    .nav-menu {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      background-color: #4f46e5;
+      color: #ffffff;
+      padding: 11px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: 0.3s ease;
+      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);
+    }
+
+    .nav-menu a:hover {
+      background-color: #3730a3;
+      transform: translateY(-3px);
+    }
+
+    .nav-menu a:nth-child(2) {
+      background-color: #ffffff;
+      color: #4f46e5;
+      border: 1px solid #c7d2fe;
+    }
+
+    .nav-menu a:nth-child(2):hover {
+      background-color: #eef2ff;
+      color: #3730a3;
+    }
+
+    p {
+      color: #4b5563;
+      font-size: clamp(15px, 2.2vw, 16px);
+      line-height: 1.8;
+      max-width: 50ch;
+      margin: 0 auto 10px;
+    }
+
+    .footer {
+      margin-top: 25px;
+      color: #9ca3af;
+      font-size: 14px;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 35px 22px;
+      }
+
+      .foto-profil {
+        width: 135px;
+        height: 135px;
+      }
+
+      .nav-menu {
+        flex-direction: column;
+      }
+
+      .nav-menu a {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section class="card">
+      <img src="Gambar/Rizqi.jpeg" alt="Foto Rizqi Maulana" class="foto-profil">
+
+      <h1>Hai, saya Rizqi Maulana</h1>
+
+      <div class="role">
+        Saya Seorang Siswa dari SMKN 4 Bandung
+      </div>
+
+      <nav class="nav-menu" aria-label="Menu utama">
+        <a href="about.html">Tentang Saya</a>
+        <a href="Portofolio.html">Portofolio</a>
+      </nav>
+
+      <p>
+        Selamat datang di website pribadi saya.
+      </p>
+
+      <p>
+        Website ini berisi format pribadi.
+      </p>
+
+      <p class="footer">
+        © 2026 Rizqi Maulana
+      </p>
+    </section>
+  </main>
+</body>
+
+</html>
